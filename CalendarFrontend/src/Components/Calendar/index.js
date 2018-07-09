@@ -213,6 +213,10 @@ export default class Calendar extends React.Component {
         this.EventCreationFunction(date);
     } 
 
+
+//render start here
+
+
     render() {
         let weekdays = this.weekdaysShort.map((day) => {
             return (
@@ -221,7 +225,9 @@ export default class Calendar extends React.Component {
         });
                
         let blanks = []; 
+
         for (let i = 0; i < this.firstDayOfMonth(); i++) {
+            
             blanks.push(<td key={i * 80} className="emptySlot"> 
                 {""}
                 </td>
@@ -276,7 +282,7 @@ export default class Calendar extends React.Component {
 
 
 
-        let trElems = rows.map((d, i) => {
+        let mBoxes = rows.map((d, i) => {
             return (
                 <tr key={i*100}>
                     {d}
@@ -300,7 +306,7 @@ export default class Calendar extends React.Component {
                         <tr>
                             {weekdays}
                         </tr>
-                             {trElems}
+                             {mBoxes}
                     </tbody>
                 </table>
 
