@@ -10,14 +10,17 @@ var connection = mysql.createConnection({
 });
 	
 router.post('/', function(req, res, next) {
+
 	var myEvent = req.body.myEvent;
 	var begin = req.body.begin;
 	var end	=	req.body.end;
 	var date = req.body.date;
+	console.log(date);
 
 	connection.query(
 		"INSERT INTO events(date, event, start, end) VALUES ( ?,?,?,? )",
-		[date, myEvent, begin, end], function(err,row,field){
+
+		[date,myEvent, begin, end], function(err,row,field){
 			if(err){
 				console.log(err);
 				res.send({'success': false, 'message': 'Could not connect to DB' })
@@ -26,6 +29,7 @@ router.post('/', function(req, res, next) {
 				res.send({'success': true, 'message': 'Added to DB' });
 			}
 		});
+
 });
 
 router.get('/', function(req, res, next) {
