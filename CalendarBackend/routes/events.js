@@ -41,7 +41,7 @@ router.get('/', function(req, res, next) {
 	[date], function(err, result) {
 		if(err){
 				console.log(err);
-				res.send({'success': false, 'message': 'Could not connect to DB' })
+				//res.send({'success': false, 'message': 'Could not connect to DB' })
 			}
 			else{
 				res.send(result);
